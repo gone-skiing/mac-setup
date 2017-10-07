@@ -1,0 +1,57 @@
+---
+- name: Make sure wheel group is present
+  group: name=wheel state=present
+  become: true
+  tags:
+    - setup-dev-user
+
+- name: Make sure wheel has passwordless sudo
+  become: true
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%wheel'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+  tags:
+    - setup-user
+
+- name: Add user in wheel group
+  become: true
+  user: 
+    name: '{{ansible_user_id}}'
+    groups: 
+      - wheel
+    append: yes
+    state: present
+  tags:
+    - setup-user
+
+- name: Replace .bashrc
+  template:
+    src: bashrc_template.j2
+    dest: "~/.bashrc"
+  tags:
+    - setup-user
+
+- name: Create .p4ignore file
+  template:
+    src: p4ignore.j2
+    dest: "~/.p4ignore"
+  tags:
+    - setup-user
+
+- name: Copy config to mac-dev-playbook
+  template:
+    src: config.j2
+    dest: "~/dev/mac-dev-playbook/config.yml"
+  tags:
+    - setup-user
+
+- name: Make sure wheel has passwordless sudo in mac-dev-playbook
+  lineinfile:
+    dest: "~/dev/mac-dev-playbook/templates/sudoers.j2"
+    state: present
+    regexp: '^%wheel'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+  tags:
+    - setup-user
