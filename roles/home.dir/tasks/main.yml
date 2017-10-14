@@ -3,7 +3,7 @@
   group: name=wheel state=present
   become: true
   tags:
-    - setup-dev-user
+    - setup-user
 
 - name: Make sure wheel has passwordless sudo
   become: true

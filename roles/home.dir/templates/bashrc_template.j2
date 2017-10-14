@@ -19,7 +19,10 @@ alias tosrc='cd $SRCDIR'
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home
 export PATH=$JAVA_HOME/bin:$PATH
 
+export GROOVY_HOME=/usr/local/opt/groovysdk/libexec
+
 alias sshac='ssh ansible-ctrl'
+alias sshjm='ssh jenkins-master'
 alias todev='cd ~/he/p4/dev'
 alias setup-machine="pushd ~/dev/mac-setup; ./do-setup.sh; source ~/.bashrc; popd"
 
