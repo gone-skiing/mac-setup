@@ -18,3 +18,21 @@
     name: git-pull-request
     virtualenv: ~/python_env
     virtualenv_command: /usr/local/bin/pyvenv
+
+- name: Create docker l0 alias script
+  template:
+    src: docker-host-alias.sh.j2
+    dest: "/usr/local/bin/docker-host-alias.sh"
+    mode: 0755
+    owner: "{{ ansible_user_id }}"
+    group: "admin"
+  become: true
+
+- name: Run docker l0 alias script on startup
+  template:
+    src: docker-host-alias.plist.j2
+    dest: "/Library/LaunchAgents/docker-host-alias.plist"
+    owner: "{{ ansible_user_id }}"
+    group: "admin"
+  become: true
+

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo "Added alias to lo0 for {{ docker_host_ip }}"
+sudo ifconfig lo0 alias {{ docker_host_ip }}/24
