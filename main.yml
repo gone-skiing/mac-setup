@@ -2,6 +2,12 @@
 - hosts: all
   connection: local
 
+  vars_files:
+    - secrets.local.yml
+    - roles/ek.user/templates/config.j2
+
   roles:
-    - role: home.dir
+    - role: ek.user
       tags: ['home-dir']
+    - role: ek.dev.tools
+      tags: ['dev-tools']

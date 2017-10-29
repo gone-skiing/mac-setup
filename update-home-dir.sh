@@ -2,4 +2,4 @@
 
 set -e
 
-ansible-playbook main.yml -i inventory
+ansible-playbook main.yml -i inventory $*

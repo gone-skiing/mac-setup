@@ -1,11 +1,14 @@
 # .bashrc
 
 export PATH=~/bin:$PATH
-export PATH=/usr/local/Cellar/python/2.7.13_1/bin:$PATH
+export PATH=/usr/local/bin:$PATH
 
 export EDITOR=vi
 
 export PROMPT_COMMAND="echo -ne '\033]0;${USER}@${HOSTNAME}\007';$PROMPT_COMMAND"
+
+export VIRTUAL_ENV_DISABLE_PROMPT="true"
+source ~/python_env/bin/activate
 
 export PS1='
 \u:\w $ '

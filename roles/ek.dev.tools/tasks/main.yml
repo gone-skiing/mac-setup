@@ -1,0 +1,20 @@
+---
+- name: Create /usr/local/Frameworks
+  file:
+    path: "/usr/local/Frameworks"
+    owner: "{{ ansible_user_id }}"
+    group: "admin"
+    state: directory
+  become: true
+
+- name: Ensure configured homebrew packages are linked
+  shell: "brew link {{ item.name | default(item) }}"
+  with_items: "{{ homebrew_linked_packages }}"
+  register: brew_link
+  changed_when: not (brew_link.stderr | search("Already linked"))
+
+- name: Install pip packages
+  pip:
+    name: git-pull-request
+    virtualenv: ~/python_env
+    virtualenv_command: /usr/local/bin/pyvenv

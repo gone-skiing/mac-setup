@@ -40,6 +40,13 @@
   tags:
     - setup-user
 
+- name: Create .netrc file
+  template:
+    src: netrc.j2
+    dest: "~/.netrc"
+  tags:
+    - setup-user
+
 - name: Copy config to mac-dev-playbook
   template:
     src: config.j2
