@@ -42,6 +42,8 @@ alias sshac='ssh ansible-ctrl'
 alias sshjm='ssh jenkins-master'
 alias top4='cd ~/he/p4/dev'
 alias todev='cd ~/dev'
+alias drm='docker rm -f -v $(docker ps -a -q)'
+alias drmi='docker rmi  $(docker images -q)'
 
 if [[ -f ~/.bashrc_user_extensions ]] ; then
     . ~/.bashrc_user_extensions
