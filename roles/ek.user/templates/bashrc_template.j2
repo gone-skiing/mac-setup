@@ -17,12 +17,15 @@ export PROMPT_COMMAND="echo -ne '\033]0;${USER}@${HOSTNAME}\007';$PROMPT_COMMAND
 export VIRTUAL_ENV_DISABLE_PROMPT="true"
 source ~/python_env/bin/activate
 
+export USE_SYSTEM_ANSIBLE=true
+source ~/he/p4/dev/installer/env-setup
+
 export DOCKER_HOST_IP={{ docker_host_ip }}
 
 export PS1='
 \u:\w $ '
 
-export SRCDIR="$HOME/p4/dev/healthrules/core/tm1"
+export SRCDIR="$HOME/he/p4/dev/core/tm1"
 export PATH="$SRCDIR/tools:$PATH"
 export PATH="$SRCDIR/ant/ant_1.6.5/bin:$PATH"
 
