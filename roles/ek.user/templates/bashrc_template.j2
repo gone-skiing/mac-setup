@@ -38,13 +38,17 @@ export GROOVY_HOME=/usr/local/opt/groovysdk/libexec
 
 export P4IGNORE="$HOME/.p4ignore"
 
+export P4USER=ekrylov
+export P4PORT=ssl:tako:1818
+export P4CLIENT=EKRYLOV-MBPT
+
 alias sshac='ssh ansible-ctrl'
 alias sshjm='ssh jenkins-master'
 alias top4='cd ~/he/p4/dev'
 alias todev='cd ~/dev'
 alias drm='docker rm -f -v $(docker ps -a -q)'
 alias drmi='docker rmi  $(docker images -q)'
+alias drmidangling='docker rmi $(docker images -f "dangling=true" -q)'
 
-if [[ -f ~/.bashrc_user_extensions ]] ; then
-    . ~/.bashrc_user_extensions
-fi
+sudo ifconfig lo0 alias 10.200.10.1/24
+
