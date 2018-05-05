@@ -23,7 +23,6 @@ homebrew_installed_packages:
   - packer
   - python3
   - terraform
-  - minikube
 
 homebrew_linked_packages:
   - python3
@@ -38,6 +37,7 @@ homebrew_cask_apps:
   - java
   - java8
   - jollysfastvnc
+  - minikube
   - parallels-desktop
   - perforce
   - p4v
