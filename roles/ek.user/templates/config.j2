@@ -6,6 +6,9 @@ configure_sudoers: yes
 configure_terminal: no
 configure_osx: no
 
+homebrew_upgrade_all_packages: yes
+homebrew_cask_state: latest
+
 # Homebrew
 homebrew_taps:
   - homebrew/core
@@ -37,6 +40,7 @@ homebrew_cask_apps:
   - java
   - java8
   - jollysfastvnc
+  - minikube
   - parallels-desktop
   - perforce
   - p4v
@@ -44,3 +48,15 @@ homebrew_cask_apps:
   - spotify
   - vagrant
   - virtualbox
+
+python_virtual_env: "/Users/ekrylov/python_env"
+
+pip_packages:
+  - name: pip
+    state: latest
+  - name: setuptools
+    state: latest
+  - name: wheel
+    state: latest
+  - name: ansible
+    state: latest

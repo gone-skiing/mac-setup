@@ -11,7 +11,7 @@
   shell: "brew link {{ item.name | default(item) }}"
   with_items: "{{ homebrew_linked_packages }}"
   register: brew_link
-  changed_when: not (brew_link.stderr | search("Already linked"))
+  changed_when: not (brew_link.stderr is search("Already linked"))
 
 - name: Install pip packages
   pip:
@@ -36,3 +36,6 @@
     group: "admin"
   become: true
 
+- name: Set zsh as default shell
+  user: name=ekrylov shell=/usr/local/bin/zsh
+  become: true

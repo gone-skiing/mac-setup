@@ -33,6 +33,20 @@
   tags:
     - setup-user
 
+- name: Replace .zshrc
+  template:
+    src: zshrc.j2
+    dest: "~/.zshrc"
+  tags:
+    - setup-user
+
+- name: Replace .zshrc.local
+  template:
+    src: zshrc.local.j2
+    dest: "~/.zshrc.local"
+  tags:
+    - setup-user
+
 - name: Create .p4ignore file
   template:
     src: p4ignore.j2
