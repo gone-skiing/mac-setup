@@ -1,19 +1,11 @@
 # .zhshrc.local
 
-if [ -z "$ORIG_PATH" ]
-then
-   export ORIG_PATH="$PATH"
-else
-   export PATH="$ORIG_PATH"
-fi
-
-export PATH=~/bin:$PATH
-export PATH=/usr/local/bin:$PATH
+export PATH=~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 export EDITOR=vi
 
 export VIRTUAL_ENV_DISABLE_PROMPT="true"
-source ~/python_env/bin/activate
+source ~/python365_env/bin/activate
 
 export USE_SYSTEM_ANSIBLE=true
 source ~/he/p4/dev/installer/env-setup

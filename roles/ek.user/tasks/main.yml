@@ -26,13 +26,6 @@
   tags:
     - setup-user
 
-- name: Replace .bashrc
-  template:
-    src: bashrc_template.j2
-    dest: "~/.bashrc"
-  tags:
-    - setup-user
-
 - name: Replace .zshrc
   template:
     src: zshrc.j2
