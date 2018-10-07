@@ -2,9 +2,9 @@
 
 set -e
 
-sudo -H pip install virtualenv
-
 sudo -H pip install --upgrade pip
+
+sudo -H pip install virtualenv
 
 export ENV_NAME=python_env
 
