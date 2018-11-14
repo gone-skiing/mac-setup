@@ -13,3 +13,20 @@
     dest: "~/.netrc"
   tags:
   - setup-user
+
+- name: Create ~/.config
+  file:
+    path: "~/.config"
+    state: directory
+
+- name: Create ~/.config/terminator
+  file:
+    path: "~/.config/terminator"
+    state: directory
+
+- name: Create terminator config file
+  template:
+    src: terminator-config.j2
+    dest: "~/.config/terminator/config"
+  tags:
+  - setup-user
