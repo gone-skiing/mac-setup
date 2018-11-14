@@ -49,8 +49,8 @@
   - setup-user
 
 - name: Copy panel configuration files
-  file:
-    src: "{{ item }}"
+  template:
+    src: "files/{{ item }}"
     dest: "~/.config/xfce4/{{ item }}"
   with_items:
   - panel/whiskermenu-7.rc
