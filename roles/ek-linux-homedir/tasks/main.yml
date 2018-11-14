@@ -14,19 +14,47 @@
   tags:
   - setup-user
 
-- name: Create ~/.config
+- name: Create directories
   file:
-    path: "~/.config"
+    path: "~/{{ item }}"
     state: directory
-
-- name: Create ~/.config/terminator
-  file:
-    path: "~/.config/terminator"
-    state: directory
+  with_items:
+  - .config
+  - .config/terminator
+  - .config/xfce4
+  - .config/xfce4/xfconf
+  - .config/xfce4/xfconf/xfce-perchannel-xml
+  - .config/xfce4/panel
+  - .config/xfce4/panel/launcher-10
+  tags:
+  - setup-user
 
 - name: Create terminator config file
   template:
     src: terminator-config.j2
     dest: "~/.config/terminator/config"
+  tags:
+  - setup-user
+
+- name: Create xfce config files
+  template:
+    src: "{{ item }}.j2"
+    dest: "~/.config/xfce4/xfconf/xfce-perchannel-xml/{{ item }}"
+  with_items:
+  - xfwm4.xml
+  - xfce4-keyboard-shortcuts.xml
+  - xfce4-panel.xml
+  - xsettings.xml
+  tags:
+  - setup-user
+
+- name: Copy panel configuration files
+  file:
+    src: "{{ item }}"
+    dest: "~/.config/xfce4/{{ item }}"
+  with_items:
+  - panel/whiskermenu-7.rc
+  - panel/xfce4-orageclock-plugin-8.rc
+  - panel/launcher-10/15421506131.desktop
   tags:
   - setup-user
