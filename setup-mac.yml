@@ -4,10 +4,10 @@
 
   vars_files:
     - secrets.local.yml
-    - roles/ek.user/templates/config.j2
+    - roles/ek-mac-homedir/templates/config.j2
 
   roles:
-    - role: ek.user
+    - role: ek-mac-homedir
       tags: ['home-dir']
     - role: ek.dev.tools
       tags: ['dev-tools']

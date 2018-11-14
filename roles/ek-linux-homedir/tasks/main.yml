@@ -1,0 +1,15 @@
+---
+
+- name: Replace .zshrc_user_extensions
+  template:
+    src: zshrc_user_extensions.j2
+    dest: "~/.zshrc_user_extensions"
+  tags:
+  - setup-user
+
+- name: Create .netrc file
+  template:
+    src: netrc.j2
+    dest: "~/.netrc"
+  tags:
+  - setup-user

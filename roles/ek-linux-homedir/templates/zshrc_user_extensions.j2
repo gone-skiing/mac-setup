@@ -1,0 +1,20 @@
+DEFAULT_USER=ekrylov
+DISABLE_AUTO_TITLE="true"
+
+case $TERM in
+    xterm*)
+        precmd () {print -Pn "\e]0;$PWD\a"}
+        ;;
+esac
+
+unset ANT_HOME
+
+[ -z "$DISPLAY" ] || xmodmap -e "keycode 133 = Meta_L"
+
+alias restart-intellij="ps -eaf | grep -i idea | awk '{print \$2}'  | xargs kill -9; nohup idea.sh 2>&1 > /dev/null &"
+
+alias mkenv='eval $(minikube docker-env)'
+
+alias drm='docker rm -f -v $(docker ps -a -q)'
+alias drmi='docker rmi  $(docker images -q)'
+alias drmidangling='docker rmi $(docker images -f "dangling=true" -q)'
