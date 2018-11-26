@@ -4,12 +4,12 @@ set -e
 
 # pip install --upgrade pip setuptools wheel ansible
 
-ansible-playbook setup-mac.yml -i inventory $1 --tags "home-dir"
+ansible-playbook setup-mac.yml -i inventory $* --tags "home-dir"
 
 pushd ../mac-dev-playbook
 
-ansible-playbook main.yml -i inventory $1
+ansible-playbook main.yml -i inventory $*
 
 popd
 
-ansible-playbook setup-mac.yml -i inventory $1 --tags "dev-tools"
+ansible-playbook setup-mac.yml -i inventory $* --tags "dev-tools"

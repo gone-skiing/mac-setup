@@ -1,0 +1,69 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http:/maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <mirrors>
+    <mirror>
+      <id>mirror1</id>
+      <mirrorOf>*</mirrorOf>
+      <name>Maven2 official repo</name>
+      <url>http://repo.maven.apache.org/maven2</url>
+    </mirror>
+    <mirror>
+      <id>nexus</id>
+      <mirrorOf>nexus</mirrorOf>
+      <url>http://nexus:8081/content/groups/public</url>
+    </mirror>
+  </mirrors>
+
+  <profiles>
+    <profile>
+      <id>default</id>
+      <repositories>
+        <repository>
+          <id>centralrepo</id>
+          <url>http://repo.maven.apache.org/maven2</url>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+            <checksumPolicy>warn</checksumPolicy>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+            <checksumPolicy>warn</checksumPolicy>
+          </snapshots>
+        </repository>
+
+        <repository>
+          <id>nexus</id>
+          <url>http://nexus:8081/content/repositories/central/</url>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </snapshots>
+        </repository>
+      </repositories>
+
+      <properties>
+        <MELISSA_ADDRDATA>/opt/melissadata/address</MELISSA_ADDRDATA>
+        <MELISSA_GEODATA>/opt/melissadata/geocoder</MELISSA_GEODATA>
+        <sonar.host.url>http://sonar:9000</sonar.host.url>
+        <sonar.login>ea21dcc44395507a21879d9bfc8d4749563cc084</sonar.login>               
+      </properties>
+    </profile>
+  </profiles>
+
+  <activeProfiles>
+    <!--make the profile active all the time -->
+    <activeProfile>default</activeProfile>
+  </activeProfiles>
+
+  <pluginGroups>
+    <pluginGroup>com.healthedge.maven.plugins</pluginGroup>
+    <pluginGroup>com.oracle.weblogic</pluginGroup>
+  </pluginGroups>
+</settings>

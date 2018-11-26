@@ -54,6 +54,23 @@
   tags:
     - setup-user
 
+- name: Create default ~/.m2/settings.xml
+  template:
+    src: "settings-external.xml.j2"
+    dest: "~/.m2/settings.xml"
+  tags:
+    - setup-user
+
+- name: Create m2 setting xml files
+  template:
+    src: "{{ item }}.j2"
+    dest: "~/.m2/{{ item }}"
+  with_items:
+    - settings-internal.xml
+    - settings-external.xml
+  tags:
+    - setup-user
+
 - name: Copy config to mac-dev-playbook
   template:
     src: config.j2
