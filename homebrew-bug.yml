@@ -1,0 +1,9 @@
+---
+- hosts: all
+  connection: local
+
+  tasks:
+  - homebrew_cask:
+      name: "dropbox"
+      state: "upgraded"
+      greedy: true
