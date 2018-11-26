@@ -36,8 +36,9 @@ homebrew_linked_packages:
 homebrew_cask_apps:
   - adobe-acrobat-reader
   - docker
-  - dropbox
+  - { name: "dropbox", state: "present" }
   - evernote
+  - firefox
   - google-chrome
   - intellij-idea
   - iterm2
@@ -48,7 +49,7 @@ homebrew_cask_apps:
   - minikube
   - parallels-desktop
   - slack
-  - spotify
+  - { name: "spotify", state: "present" }
   - vagrant
   - virtualbox
 

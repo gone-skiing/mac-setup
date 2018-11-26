@@ -8,7 +8,7 @@ ansible-playbook setup-mac.yml -i inventory $1 --tags "home-dir"
 
 pushd ../mac-dev-playbook
 
-ansible-playbook main.yml -i inventory
+ansible-playbook main.yml -i inventory $1
 
 popd
 
