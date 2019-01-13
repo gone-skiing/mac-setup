@@ -5,5 +5,3 @@ cd $HOME
 export ENV_NAME=python_env
 
 pip freeze > $HOME/dev/mac-setup/pip-requirements.txt
-
-mv $ENV_NAME ${ENV_NAME}.old
