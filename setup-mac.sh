@@ -13,3 +13,7 @@ ansible-playbook main.yml -i inventory $*
 popd
 
 ansible-playbook setup-mac.yml -i inventory $* --tags "dev-tools"
+
+brew cleanup -s
+brew doctor
+brew missing
