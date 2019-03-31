@@ -1,5 +1,7 @@
 #@IgnoreInspection BashAddShebang
 
+# Remember to deactivate old environment before running this script.
+
 set -e
 
 sudo -H pip install --upgrade pip
