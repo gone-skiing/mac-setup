@@ -8,12 +8,13 @@ sudo -H pip install virtualenv
 
 export ENV_NAME=python_env
 
+cd $HOME
+
 if [ -d $ENV_NAME ]
 then
     mv $ENV_NAME ${ENV_NAME}.old
 fi
 
-cd $HOME
 
 virtualenv -p /usr/local/bin/python3 $ENV_NAME
 
