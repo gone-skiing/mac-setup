@@ -1,0 +1,26 @@
+- name: Cloning oh-my-zsh
+  git:
+    repo=https://github.com/robbyrussell/oh-my-zsh
+    dest=~/.oh-my-zsh
+
+- name: Cloning powerlevel9k
+  git:
+    repo=https://github.com/bhilburn/powerlevel9k.git
+    dest=~/.oh-my-zsh/custom/themes/powerlevel9k
+
+- name: Cloning zsh-users plugins
+  git:
+    repo=https://github.com/zsh-users/{{ item }}.git
+    dest=~/.oh-my-zsh/custom/plugins/{{ item }}
+  with_items:
+    - zsh-autosuggestions
+    - zsh-completions
+    - zsh-syntax-highlighting
+
+- name: Create fonts directory
+  file:
+    path: ~/Library/Fonts
+    state: directory
+
+- name: Install nerd font
+  shell: 'cd ~/Library/Fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf'

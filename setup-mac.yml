@@ -9,5 +9,7 @@
   roles:
     - role: ek-mac-homedir
       tags: ['home-dir']
-    - role: ek.dev.tools
+    - role: ek-dev-tools
+      tags: ['dev-tools']
+    - role: ek-git-repos
       tags: ['dev-tools']

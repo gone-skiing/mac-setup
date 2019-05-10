@@ -7,7 +7,7 @@ export ZSH=/Users/ekrylov/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -60,10 +60,18 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  extract
+  web-search
+  yum
+  git-extras
+  docker
+  vagrant
   colored-man-pages
   colorize
   bundler
   zsh-autosuggestions
+  zsh-completions
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -85,10 +93,6 @@ POWERLEVEL9K_DIR_HOME_FOREGROUND="$DEFAULT_DIR_FOREGROUND"
 POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="$DEFAULT_DIR_FOREGROUND"
 POWERLEVEL9K_DIR_DEFAULT_DIR_FOREGROUND="$DEFAULT_DIR_FOREGROUND"
 POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="$DEFAULT_DIR_FOREGROUND"
-
-source  ~/dev/powerlevel9k/powerlevel9k.zsh-theme
-
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

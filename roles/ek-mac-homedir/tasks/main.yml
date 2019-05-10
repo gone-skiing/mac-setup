@@ -26,12 +26,22 @@
   tags:
     - setup-user
 
+- name: Add user in wheel group
+  become: true
+  user:
+    name: '{{ansible_user_id}}'
+    shell: /usr/local/bin/zsh
+  tags:
+    - setup-user
+    - setup-zsh
+
 - name: Replace .zshrc
   template:
     src: zshrc.j2
     dest: "~/.zshrc"
   tags:
     - setup-user
+    - setup-zsh
 
 - name: Replace .zshrc.local
   template:
@@ -39,6 +49,12 @@
     dest: "~/.zshrc.local"
   tags:
     - setup-user
+    - setup-zsh
+
+- name: Include zsh setup
+  include_tasks: setup-zsh.yml
+  tags:
+    - setup-zsh
 
 - name: Create .p4ignore file
   template:
