@@ -8,6 +8,7 @@
     accept_hostkey: yes
     update: no
   with_items:
+    - { owner: gone-skiing,  repo: java-examples }
     - { owner: gone-skiing,  repo: mac-dev-playbook }
     - { owner: gone-skiing,  repo: react-sample-app }
     - { owner: gone-skiing,  repo: react-course }
