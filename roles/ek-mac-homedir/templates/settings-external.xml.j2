@@ -8,11 +8,6 @@
       <name>Maven2 official repo</name>
       <url>http://repo.maven.apache.org/maven2</url>
     </mirror>
-    <mirror>
-      <id>nexus</id>
-      <mirrorOf>nexus</mirrorOf>
-      <url>http://nexus:8081/content/groups/public</url>
-    </mirror>
   </mirrors>
 
   <profiles>
@@ -33,27 +28,7 @@
             <checksumPolicy>warn</checksumPolicy>
           </snapshots>
         </repository>
-
-        <repository>
-          <id>nexus</id>
-          <url>http://nexus:8081/content/repositories/central/</url>
-          <releases>
-            <enabled>true</enabled>
-            <updatePolicy>never</updatePolicy>
-          </releases>
-          <snapshots>
-            <enabled>true</enabled>
-            <updatePolicy>never</updatePolicy>
-          </snapshots>
-        </repository>
       </repositories>
-
-      <properties>
-        <MELISSA_ADDRDATA>/opt/melissadata/address</MELISSA_ADDRDATA>
-        <MELISSA_GEODATA>/opt/melissadata/geocoder</MELISSA_GEODATA>
-        <sonar.host.url>http://sonar:9000</sonar.host.url>
-        <sonar.login>ea21dcc44395507a21879d9bfc8d4749563cc084</sonar.login>               
-      </properties>
     </profile>
   </profiles>
 

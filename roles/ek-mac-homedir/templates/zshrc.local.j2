@@ -5,40 +5,35 @@ export PATH=~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 export EDITOR=vi
 
 export VIRTUAL_ENV_DISABLE_PROMPT="true"
-source ~/python_env/bin/activate
 
-export OLD_PATH=
-export USE_SYSTEM_ANSIBLE=true
-source ~/he/bb/installer/env-setup
+# Google Cloud SDK needs python 2.7
+#source ~/python_env/bin/activate
+source {{ python_virtual_env }}/bin/activate
 
 export DOCKER_HOST_IP=10.200.10.1
 
 export CLICOLOR=1
 #export LSCOLORS=ExFxBxDxCxegedabagacad
 
-export SRCDIR="$HOME/he/p4/dev/core/tm1"
-export PATH="$SRCDIR/tools:$PATH"
-export PATH="$SRCDIR/ant/ant_1.6.5/bin:$PATH"
-
-alias tosrc='cd $SRCDIR'
-
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 export PATH=$JAVA_HOME/bin:$PATH
 
 export GROOVY_HOME=/usr/local/opt/groovysdk/libexec
 
-export P4IGNORE="$HOME/.p4ignore"
-
-export P4USER=ekrylov
-export P4PORT=ssl:tako:1818
-export P4CLIENT=EKRYLOV-MBPT
-
-alias sshac='ssh ansible-ctrl'
-alias sshjm='ssh jenkins-master'
-alias top4='cd ~/he/p4/dev'
 alias todev='cd ~/dev'
 alias drm='docker rm -f -v $(docker ps -a -q)'
 alias drmi='docker rmi  $(docker images -q)'
 alias drmidangling='docker rmi $(docker images -f "dangling=true" -q)'
 
 sudo ifconfig lo0 alias 10.200.10.1/24
+
+export NVM_DIR="/Users/{{ ansible_user_id }}/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/{{ ansible_user_id }}/dev/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/{{ ansible_user_id }}/dev/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/{{ ansible_user_id }}/dev/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/{{ ansible_user_id }}/dev/google-cloud-sdk/completion.zsh.inc'; fi
+
+source ~/.zshrc.java

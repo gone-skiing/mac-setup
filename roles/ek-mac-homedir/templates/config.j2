@@ -14,21 +14,26 @@ homebrew_cask_greedy: yes
 homebrew_taps:
   - homebrew/core
   - homebrew/cask
+  - homebrew/cask-versions
 
+#  - { name: gnu-tar, install_options: "with-default-names" }                  # GNU tar is needed for ansible unarchive tasks
 homebrew_installed_packages:
   - coreutils
   - git
-  - wget
-  - { name: gnu-tar, install_options: "with-default-names" }                  # GNU tar is needed for ansible unarchive tasks
+  - gnu-tar
   - gradle
   - groovysdk
   - maven@3.3
   - node
   - packer
   - protobuf
+  - python
   - python3
   - terraform
+  - watchman
+  - wget
   - yarn
+  - zsh
 
 homebrew_linked_packages:
   - python3
@@ -43,11 +48,13 @@ homebrew_cask_apps:
   - freemind
   - google-chrome
   - { name: "google-backup-and-sync", state: "present" }
+  - { name: "grammarly", state: "present" }
   - hazel
   - intellij-idea
   - iterm2
   - java
-  - java8
+  - java11
+  - adoptopenjdk8
   - jollysfastvnc
   - keyboard-maestro
   - keycastr
@@ -55,13 +62,12 @@ homebrew_cask_apps:
   - minikube
   - obs
   - omnidisksweeper
-  - parallels-desktop
   - slack
   - { name: "spotify", state: "present" }
   - vagrant
   - virtualbox
 
-python_virtual_env: "/Users/ekrylov/python_env"
+python_virtual_env: "/Users/{{ ansible_user_id }}/python_env27"
 
 pip_packages:
   - name: ansible

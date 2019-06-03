@@ -1,0 +1,12 @@
+function __set_java {
+    java_ver=$1
+    export JAVA_HOME=$(/usr/libexec/java_home -v $java_ver)
+    export PATH=$JAVA_HOME/bin:$PATH
+}
+
+alias j8='__set_java 1.8'
+alias j12='__set_java 12'
+
+alias start-api='j8; cd ~/mabl/api; export GOOGLE_APPLICATION_CREDENTIALS=~/mabl/mabl-dev_testing.json; ./gradlew server:jettyRun'
+alias start-ui='j12; cd ~/mabl/mabl-ui; npm start'
+alias start-admin='j12; cd ~/mabl/mabl-admin; npm start'

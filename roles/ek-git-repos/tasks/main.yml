@@ -14,7 +14,7 @@
     - { owner: gone-skiing,  repo: react-course }
     - { owner: spring-cloud, repo: spring-cloud-dataflow-server-kubernetes }
     - { owner: wurstmeister, repo: kafka-docker }
-    - { owner: ansible, repo: ansible }
+#    - { owner: ansible, repo: ansible }
     - { owner: gone-skiing, repo: ansible-role-jenkins }
     - { owner: geerlingguy, repo: ansible-role-nodejs }
     - { owner: geerlingguy, repo: ansible-role-docker }

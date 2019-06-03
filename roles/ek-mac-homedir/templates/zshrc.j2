@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/ekrylov/.oh-my-zsh
+export ZSH=/Users/{{ ansible_user_id }}/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -84,7 +84,7 @@ export POWERLEVEL9K_MODE="nerdfont-complete"
 export POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs ram virtualenv time)
 export POWERLEVEL9K_SHORTEN_DIR_LENGTH=8
-export DEFAULT_USER=ekrylov
+export DEFAULT_USER={{ ansible_user_id }}
 
 # Easily switch primary foreground/background colors
 DEFAULT_DIR_FOREGROUND="white"
