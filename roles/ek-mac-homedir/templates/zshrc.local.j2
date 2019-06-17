@@ -20,10 +20,16 @@ export PATH=$JAVA_HOME/bin:$PATH
 
 export GROOVY_HOME=/usr/local/opt/groovysdk/libexec
 
+# navigation
 alias todev='cd ~/dev'
+
+# docker
 alias drm='docker rm -f -v $(docker ps -a -q)'
 alias drmi='docker rmi  $(docker images -q)'
 alias drmidangling='docker rmi $(docker images -f "dangling=true" -q)'
+
+# git
+alias back-to-master='git checkout master; git pull; git remote prune origin'
 
 sudo ifconfig lo0 alias 10.200.10.1/24
 
