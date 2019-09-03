@@ -39,3 +39,20 @@
 - name: Set zsh as default shell
   user: name={{ ansible_user_id }} shell=/usr/local/bin/zsh
   become: true
+
+- name: Install nvm
+  git:
+    repo: "https://github.com/nvm-sh/nvm.git"
+    version: "{{ nvm_version }}"
+    dest: "~/.nvm"
+  tags:
+    - node
+
+- name: Install node versions
+  shell: ". ~/.nvm/nvm.sh; nvm install {{ item }} --latest-npm"
+  with_items:
+    - "node"
+    - "--lts=carbon"
+    - "--lts=dubnium"
+  tags:
+    - node

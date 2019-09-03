@@ -1,2 +1,4 @@
 ---
 docker_host_ip: "10.200.10.1"
+
+nvm_version: "v0.34.0"
