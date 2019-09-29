@@ -30,6 +30,7 @@ alias drmidangling='docker rmi $(docker images -f "dangling=true" -q)'
 
 # git
 alias back-to-master='git checkout master; git pull; git remote prune origin'
+alias pending-changes='git log $(git describe --tags --abbrev=0)..HEAD'
 
 sudo ifconfig lo0 alias 10.200.10.1/24
 
