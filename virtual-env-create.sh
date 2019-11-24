@@ -4,9 +4,14 @@
 
 set -e
 
-sudo -H pip install --upgrade pip
+#brew install openssl
+#cd /usr/local/lib
+#sudo ln -s /usr/local/opt/openssl/lib/libssl.dylib libssl.dylib
+#sudo ln -s /usr/local/opt/openssl/lib/libcrypto.dylib libcrypto.dylib
 
-sudo -H pip install virtualenv
+sudo -H pip3 install --upgrade pip
+
+sudo -H pip3 install virtualenv
 
 export ENV_NAME=python_env
 
@@ -18,11 +23,11 @@ then
 fi
 
 
-virtualenv -p /usr/local/bin/python3 $ENV_NAME
+python3.7 -m venv $ENV_NAME
 
 source $HOME/$ENV_NAME/bin/activate
 
-pip install -r $HOME/dev/mac-setup/pip-requirements.txt
+pip3 install -r $HOME/dev/mac-setup/pip-requirements.txt
 
 which ansible
 

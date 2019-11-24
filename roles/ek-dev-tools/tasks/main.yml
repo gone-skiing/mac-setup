@@ -13,12 +13,18 @@
   register: brew_link
   changed_when: not (brew_link.stderr is search("Already linked"))
 
-# - name: Install pip packages
-#   pip:
-#     name: git-pull-request
-#     virtualenv: ~/python_env
-#     virtualenv_command: /usr/local/bin/pyvenv
-
+- name: Create a symbolic links for openssl python fix
+  file:
+    src: "/usr/local/opt/openssl/lib/{{ item }}"
+    dest: "/usr/local/lib/{{ item }}"
+    owner: "root"
+    group: "admin"
+    state: link
+  become: true
+  with_items:
+    - libssl.dylib
+    - libcrypto.dylib
+    -
 - name: Create docker l0 alias script
   template:
     src: docker-host-alias.sh.j2

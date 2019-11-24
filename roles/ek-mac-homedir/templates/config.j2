@@ -26,6 +26,7 @@ homebrew_installed_packages:
   - gradle
   - groovysdk
   - maven@3.3
+  - openssl
   - packer
   - protobuf
   - python
@@ -72,7 +73,7 @@ homebrew_cask_apps:
   - vagrant
   - virtualbox
 
-python_virtual_env: "/Users/{{ ansible_user_id }}/python_env27"
+python_virtual_env: "/Users/{{ ansible_user_id }}/python_env"
 
 pip_packages:
   - name: ansible
