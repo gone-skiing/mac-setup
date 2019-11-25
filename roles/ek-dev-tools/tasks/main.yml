@@ -24,7 +24,7 @@
   with_items:
     - libssl.dylib
     - libcrypto.dylib
-    -
+
 - name: Create docker l0 alias script
   template:
     src: docker-host-alias.sh.j2
