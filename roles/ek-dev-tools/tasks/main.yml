@@ -62,3 +62,20 @@
     - "--lts=dubnium"
   tags:
     - node
+
+- name: Add git package URL to ~/.npmrc
+  lineinfile:
+    dest: "~/.npmrc"
+    state: present
+    line: '@gone-skiing:registry=https://npm.pkg.github.com/'
+  tags:
+    - node
+
+- name: Add git package token to ~/.npmrc
+  lineinfile:
+    dest: "~/.npmrc"
+    state: present
+    regexp: '^//npm.pkg.github.com/:_authToken='
+    line: '//npm.pkg.github.com/:_authToken={{ git_package_token }}'
+  tags:
+    - node
