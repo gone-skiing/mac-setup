@@ -46,6 +46,9 @@
   user: name={{ ansible_user_id }} shell=/usr/local/bin/zsh
   become: true
 
+- name: Update npm to latest
+  shell: "npm install -g npm"
+
 - name: Install nvm
   git:
     repo: "https://github.com/nvm-sh/nvm.git"
@@ -60,8 +63,12 @@
     - "node"
     - "--lts=carbon"
     - "--lts=dubnium"
+    - "--lts=erbium"
   tags:
     - node
+
+- name: Set node default
+  shell: ". ~/.nvm/nvm.sh; nvm alias default lts/erbium"
 
 - name: Add git package URL to ~/.npmrc
   lineinfile:

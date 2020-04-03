@@ -6,8 +6,8 @@ function __set_java {
 
 alias j8='__set_java 1.8'
 alias j11='__set_java 11'
-alias j13='__set_java 13'
+alias j14='__set_java 14'
 
 alias start-api='j8; cd ~/mabl/api; export GOOGLE_APPLICATION_CREDENTIALS=~/mabl/mabl-dev_testing.json; ./gradlew server:jettyRun'
-alias start-ui='j13; cd ~/mabl/mabl-ui; npm start'
-alias start-admin='j13; cd ~/mabl/mabl-admin; npm start'
+alias start-ui='cd ~/mabl/mabl-ui; npm start'
+alias start-admin='cd ~/mabl/mabl-admin; npm start'
