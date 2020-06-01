@@ -1,22 +1,17 @@
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http:/maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
-  <mirrors>
-    <mirror>
-      <id>mirror1</id>
-      <mirrorOf>*</mirrorOf>
-      <name>Maven2 official repo</name>
-      <url>http://repo.maven.apache.org/maven2</url>
-    </mirror>
-  </mirrors>
 
   <profiles>
     <profile>
       <id>default</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
       <repositories>
         <repository>
-          <id>centralrepo</id>
-          <url>http://repo.maven.apache.org/maven2</url>
+          <id>central</id>
+          <url>https://repo1.maven.org/maven2/</url>
           <releases>
             <enabled>true</enabled>
             <updatePolicy>never</updatePolicy>
@@ -28,7 +23,22 @@
             <checksumPolicy>warn</checksumPolicy>
           </snapshots>
         </repository>
+        <repository>
+          <id>repo.jenkins-ci.org</id>
+          <url>https://repo.jenkins-ci.org/public/</url>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+            <checksumPolicy>warn</checksumPolicy>
+          </releases>
+        </repository>
       </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>repo.jenkins-ci.org</id>
+          <url>https://repo.jenkins-ci.org/public/</url>
+        </pluginRepository>
+      </pluginRepositories>
     </profile>
   </profiles>
 
@@ -40,5 +50,6 @@
   <pluginGroups>
     <pluginGroup>com.healthedge.maven.plugins</pluginGroup>
     <pluginGroup>com.oracle.weblogic</pluginGroup>
+    <pluginGroup>org.jenkins-ci.tools</pluginGroup>
   </pluginGroups>
 </settings>
