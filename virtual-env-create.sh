@@ -4,15 +4,6 @@
 
 set -e
 
-#brew install openssl
-#cd /usr/local/lib
-#sudo ln -s /usr/local/opt/openssl/lib/libssl.dylib libssl.dylib
-#sudo ln -s /usr/local/opt/openssl/lib/libcrypto.dylib libcrypto.dylib
-
-sudo -H pip3 install --upgrade pip
-
-sudo -H pip3 install virtualenv
-
 export ENV_NAME=python_env
 
 cd $HOME
@@ -22,8 +13,16 @@ then
     mv $ENV_NAME ${ENV_NAME}.old
 fi
 
+#brew install openssl
+#cd /usr/local/lib
+#sudo ln -s /usr/local/opt/openssl/lib/libssl.dylib libssl.dylib
+#sudo ln -s /usr/local/opt/openssl/lib/libcrypto.dylib libcrypto.dylib
 
-python3.7 -m venv $ENV_NAME
+sudo -H pip3 install --upgrade pip
+
+sudo -H pip3 install virtualenv
+
+python3.8 -m venv $ENV_NAME
 
 source $HOME/$ENV_NAME/bin/activate
 
