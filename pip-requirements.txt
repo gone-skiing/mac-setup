@@ -1,5 +1,6 @@
-ansible==2.10.0
-ansible-base==2.10.1
+ansible==2.10.1
+ansible-base==2.10.2
+appdirs==1.4.4
 asn1crypto==1.4.0
 attrs==19.3.0
 bcrypt==3.1.7
@@ -9,7 +10,9 @@ chardet==3.0.4
 cryptography==3.0
 daiquiri==2.1.1
 Deprecated==1.2.10
+distlib==0.3.1
 enum34==1.1.10
+filelock==3.0.12
 git-pull-request==6.0.1
 idna==2.10
 ipaddress==1.0.23
@@ -27,5 +30,6 @@ python-json-logger==0.1.11
 PyYAML==5.3.1
 requests==2.24.0
 six==1.15.0
-urllib3==1.25.10
+urllib3==1.25.11
+virtualenv==20.0.32
 wrapt==1.12.1
