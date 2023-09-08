@@ -40,7 +40,8 @@ alias pending-changes='git log $(git describe --tags --abbrev=0)..HEAD'
 sudo ifconfig lo0 alias 10.200.10.1/24
 
 export NVM_DIR="/Users/{{ ansible_user_id }}/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 autoload -U add-zsh-hook
 
