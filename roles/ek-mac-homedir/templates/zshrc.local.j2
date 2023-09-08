@@ -18,6 +18,7 @@ export CLICOLOR=1
 #export LSCOLORS=ExFxBxDxCxegedabagacad
 
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+#export JAVA_HOME=$(/usr/libexec/java_home -v 11)
 export PATH=$JAVA_HOME/bin:$PATH
 
 export GROOVY_HOME=/usr/local/opt/groovysdk/libexec
@@ -70,5 +71,7 @@ if [ -f '/Users/{{ ansible_user_id }}/dev/google-cloud-sdk/path.zsh.inc' ]; then
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/{{ ansible_user_id }}/dev/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/{{ ansible_user_id }}/dev/google-cloud-sdk/completion.zsh.inc'; fi
+
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 source ~/.zshrc.java
